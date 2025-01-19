@@ -1,0 +1,67 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        // Specify the cross compiler and arch in environment variable for all tasks
+        "env": {
+            "ARCH": "arm64",
+            "CROSS_COMPILE": "aarch64-none-linux-gnu-",
+            "KDIR": "${workspaceFolder}/../../../orangepi-build/kernel/orange-pi-5.10-rk35xx/"
+        }
+    },
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "make modules",
+            "command": "/usr/bin/make",
+            "args": [
+                "all"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "make clean",
+            "command": "/usr/bin/make",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Copy module to Orange",
+            "command": "scp -r *.ko orangepi@orangepi:/home/orangepi/modules",
+            "dependsOn": [
+                "make (modules)"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "process",
+            "label": "make compile_commands.json",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/.vscode/generate_compdb.py",
+                "-O", 
+                "${workspaceFolder}/../../../orangepi-build/kernel/orange-pi-5.10-rk35xx/",
+                "${workspaceFolder}",
+            ],
+            "problemMatcher": [
+            ]
+        }
+    ]
+}
