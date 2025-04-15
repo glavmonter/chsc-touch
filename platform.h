@@ -9,7 +9,7 @@
 #define SOC_PLATFORM_MTK                        0x0100
 #define SOC_PLATFROM_QUAL                       0x0200
 #define SOC_PLATFORM_SPRD                       0x0300
-#define SOC_PLATFORM_SELECT                     SOC_PLATFORM_SPRD
+#define SOC_PLATFORM_SELECT                     SOC_PLATFROM_QUAL
 
 #define MULTI_PROTOCOL_TYPE_A                   0
 #define MULTI_PROTOCOL_TYPE_B                   1
@@ -20,7 +20,7 @@
 #define SEMI_TOUCH_GESTURE_OPEN                 0
 #define SEMI_TOUCH_GLOVE_OPEN                   0
 #define SEMI_TOUCH_APK_NODE_EN                  0
-#define SEMI_TOUCH_ONLINE_UPDATE_EN             1
+#define SEMI_TOUCH_ONLINE_UPDATE_EN             0
 #define SEMI_TOUCH_BOOTUP_UPDATE_EN             1
 
 #define SEMI_TOUCH_DMA_TRANSFER                 0
@@ -35,6 +35,10 @@
 #define TYPE_OF_IC(X)                           ((X) & 0x00)
 #define SEMI_TOUCH_KEY_EVT                      {KEY_MENU, KEY_HOMEPAGE, KEY_BACK, KEY_VOLUMEUP, KEY_VOLUMEDOWN}
 
+#define TRANSFORM_NONE							0
+#define TRANSFORM_LEFT							1
+#define TRANSFORM_LEFT_OFFSET					2
+#define TRANSFORM								TRANSFORM_NONE
 
 /*******************************************************************************************/
 extern void semi_touch_suspend_entry(struct device* dev);

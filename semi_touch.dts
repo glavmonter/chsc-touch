@@ -1,0 +1,22 @@
+/dts-v1/;
+ /plugin/;
+  /{
+    compatible = "rockchip,rk3566-orangepi-cm4";
+
+ 	fragment@0 {
+ 		// target = <&i2c2>; // моя плата
+		target = <&i2c1>; // Вадя
+
+ 		__overlay__{
+ 			semi_touch@2e {
+ 				compatible = "chipsemi,chsc_cap_touch";
+ 				reg = <0x2e>;
+                
+                chipsemi,int-gpio = <&gpio4 0 1>; // GPIO4_A0, GPIO_ACTIVE_LOW (1)
+                chipsemi,rst-gpio = <&gpio4 7 0>; // GPIO4_A7, GPIO_ACTIVE_HIGH (0)
+                
+ 				status = "okay";
+ 			};
+ 		};
+ 	};
+};

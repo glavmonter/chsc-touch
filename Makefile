@@ -15,4 +15,5 @@ all:
 clean:
 	make -C ${KDIR} M=${PWD} clean
 
-
+dt:
+	dtc -@ -q -I dts -O dtb -o semi_touch.dtbo semi_touch.dts

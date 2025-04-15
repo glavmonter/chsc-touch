@@ -78,7 +78,7 @@ typedef void (*de_init_fun)(void);
 #define CTP_GLOVE_GATE               (1 << 19)
 #define CTP_ORIENTATION_GATE         (1 << 20)
 #define ack_pointing_action(x)       (0 == (x & 0xffff))
-#define set_status_pointing(x)       do{((x) = CTP_POINTING_WORK); kernel_log_d("set status pointing...\n");}while(0)
+#define set_status_pointing(x)       do{((x) = CTP_POINTING_WORK); /*kernel_log_d("set status pointing...\n");*/}while(0)
 #define set_status_ready_upgrade(x)  do{((x) = CTP_READY_UPGRADE); kernel_log_d("set status before reset tp...\n");}while(0)
 #define set_status_upgrade_run(x)    do{((x) = CPT_UPGRAD_RUNING); kernel_log_d("set status upgrade running...\n");}while(0)
 
@@ -117,7 +117,7 @@ typedef void (*de_init_fun)(void);
 #define open_glove_function(x)       do{((x) |= GLOVE_FUNCTION_EN); kernel_log_d("open glove function...\n");}while(0)
 #define close_glove_function(x)      do{((x) &= (~GLOVE_FUNCTION_EN)); kernel_log_d("close glove function...\n");}while(0)
 #define is_glove_function_en(x)      (((x) & GLOVE_FUNCTION_EN) > 0)
-#define open_esd_function(x)         do{((x) |= ESD_FUNCTION_EN); kernel_log_d("open esd function...\n");}while(0)
+#define open_esd_function(x)         do{((x) |= ESD_FUNCTION_EN); /*kernel_log_d("open esd function...\n");*/}while(0)
 #define close_esd_function(x)        do{((x) &= (~ESD_FUNCTION_EN)); kernel_log_d("close esd function...\n");}while(0)
 #define is_esd_function_en(x)        (((x) & ESD_FUNCTION_EN) > 0)
 

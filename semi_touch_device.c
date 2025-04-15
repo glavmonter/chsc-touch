@@ -305,7 +305,7 @@ int semi_touch_resolution_adaption(struct sm_touch_dev *st_dev)
     input_set_abs_params(st_dev->input, ABS_MT_POSITION_X, 0, pix_x, 0, 0);
     input_set_abs_params(st_dev->input, ABS_MT_POSITION_Y, 0, pix_y, 0, 0);
 
-    kernel_log_d("resolution = (%d, %d)\n", pix_x, pix_y);
+    // kernel_log_d("resolution = (%d, %d)\n", pix_x, pix_y);
 
     ret = semi_touch_read_bytes(0x200000d0, readbuffer, sizeof(readbuffer));
     check_return_if_fail(ret, NULL);

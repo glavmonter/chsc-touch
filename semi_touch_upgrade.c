@@ -403,7 +403,7 @@ int semi_touch_check_boot_update(unsigned char *pdata, unsigned int len, unsigne
         }
     }
 
-    kernel_log_d("tp boot ver = 0x%x, udp boot ver = 0x%x\r\n", st_dev.fw_ver, upd_boot_ver);
+    // kernel_log_d("tp boot ver = 0x%x, udp boot ver = 0x%x\r\n", st_dev.fw_ver, upd_boot_ver);
     /*
         If we need to compare versions, only update the newer version
     */
@@ -434,7 +434,7 @@ int semi_touch_update_updfile(const unsigned char *pdata, unsigned short len, un
     unsigned int *vlist;
     struct chsc_updfile_header *upd_header;
 
-    kernel_log_d("check if firmware need update, product pid_vid = 0x%08x, force = %d\r\n", st_dev.vid_pid, force_update);
+    // kernel_log_d("check if firmware need update, product pid_vid = 0x%08x, force = %d\r\n", st_dev.vid_pid, force_update);
 
     if (len < sizeof(struct chsc_updfile_header)) { 
         return -SEMI_DRV_INVALID_PARAM;

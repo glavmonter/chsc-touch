@@ -273,7 +273,7 @@ static int semi_touch_probe(struct i2c_client *client, const struct i2c_device_i
     }
     check_return_if_fail(ret, NULL);
 
-    kernel_log_d("semitouch probe finished\r\n");
+    // kernel_log_d("semitouch probe finished\r\n");
 
     return ret;
 }
